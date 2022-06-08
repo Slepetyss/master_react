@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+
+const title = 'React';
+
+const welcome = {
+  title: 'React',
+  greeting: 'Hey',
+};
+
+const myElement = (
+  <h1>
+    {welcome.greeting} {getTitle('title')} user!
+  </h1>
+);
+
+const jsElement = React.createElement('h1', null, `Hello ${title}`);
+
+function getTitle(title) {
+  return welcome.title;
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {myElement}
+      ------
+      {jsElement}
+      <label htmlFor='Search'>Search: </label>
+      <input type='search' id='search'></input>
     </div>
   );
 }
